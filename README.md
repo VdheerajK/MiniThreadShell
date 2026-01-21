@@ -1,6 +1,6 @@
 MiniThreadShell: GUI-Integrated Multi-threaded Shell
 
-MiniThreadShell is a desktop application that bridges the gap between low-level system interaction and a modern graphical user interface. Developed to simplify command-line operations, the project integrates a multi-threaded C backend for core shell functionality with a Python frontend for visualization, logging, and cloud synchronization.
+This is a desktop application that bridges the gap between low-level system interaction and a modern graphical user interface. Developed to simplify command-line operations, the project integrates a multi-threaded C backend for core shell functionality with a Python frontend for visualization, logging, and cloud synchronization.
 
 _____________________________________
 
