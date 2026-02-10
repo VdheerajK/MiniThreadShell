@@ -1,82 +1,42 @@
-MiniThreadShell: GUI-Integrated Multi-threaded Shell
+# MiniThreadShell
 
-This is a desktop application that bridges the gap between low-level system interaction and a modern graphical user interface. Developed to simplify command-line operations, the project integrates a multi-threaded C backend for core shell functionality with a Python frontend for visualization, logging, and cloud synchronization.
+## 📋 Project Overview
+**MiniThreadShell** is a desktop application that blends powerful command-line functionality with a user-friendly graphical interface. Built using **Tkinter**, it allows users to run terminal commands, view styled outputs, log activity to Excel, analyze usage with Matplotlib, and upload logs to an AWS S3 bucket.
 
-_____________________________________
+A unique feature of this project is its multi-threaded shell component written in **C**, which Python interacts with through a compiled executable built using a **Makefile**.
 
+## 🏗️ System Architecture
+The application integrates several layers to provide a cohesive experience:
+* **Shell Layer**: A multi-threaded C-based shell handling core execution logic.
+* **Application Layer**: Python logic using `subprocess` and `Popen` to bridge the C executable and the GUI.
+* **Data Layer**: Local persistence via **Excel (openpyxl)** and cloud storage via **AWS S3 (boto3)**.
+* **Visualization Layer**: Command usage analysis powered by **Matplotlib**.
 
-🚀 Key Features
-Dual-Language Architecture: Combines the performance of a multi-threaded C shell with the flexibility of a Python Tkinter GUI.
+## 🛠️ Tech Stack
+* **Languages**: Python 3.12.4, C.
+* **GUI Framework**: Tkinter.
+* **Libraries**:
+    * `openpyxl`: For Excel file creation and management.
+    * `matplotlib`: For generating visual command usage statistics.
+    * `boto3`: For seamless AWS S3 integration.
+* **Environment**: Developed in Visual Studio Code on macOS.
 
-Automated Data Logging: Captures all terminal commands and outputs into an Excel (.xlsx) file for session auditing.
+## 🚀 Key Features
+* **Hybrid Interface**: Execute shell commands from a Tkinter GUI with dedicated areas for output and errors.
+* **Automated Logging**: Logs every command and its output into a structured Excel file (`command_log.xlsx`) with timestamps.
+* **Cloud Integration**: Verification of Excel log uploads to a designated AWS S3 bucket.
+* **Usage Analytics**: Real-time bar charts showing the "Top 5 Most Used Commands" to track session activity.
+* **Security**: Password-protected admin features and secure handling of cloud credentials.
 
+## 📊 Future Work
+* **System Monitoring**: Adding real-time system resource graphs for CPU and RAM.
+* **Batch Execution**: Enabling command scheduling or batch execution.
+* **Advanced Auth**: Integrating user authentication using tokens instead of plain passwords.
+* **Export Options**: Providing CSV export and JSON-based configuration.
 
-
-Cloud Persistence: Features one-click synchronization to Amazon S3 using Boto3, ensuring logs are securely backed up in the cloud.
-
-
-
-
-Usage Analytics: Built-in data visualization using Matplotlib to analyze and graph the frequency of command usage.
-
-
-
-
-
-System Security: Implements password-protected admin features and handles cloud credentials securely via environment variables.
-
-_____________________________________
-
-🛠️ Technical Stack
-Frontend: Python (Tkinter).
-
-
-Backend: C (Multi-threading), Python (Subprocess/Popen).
-
-
-
-
-Cloud: AWS S3 (Boto3 SDK).
-
-
-
-Data/Analytics: Matplotlib (Visualization), OpenPyXL (Excel automation).
-
-
-
-Build System: Makefile for compiled C executables.
-
-_____________________________________
-
-
-🏗️ Architecture & Implementation
-The application utilizes a 3-tier logic to process user requests:
-
-UI Layer: A Tkinter entry field captures shell commands and displays styled terminal output.
-
-
-Process Layer: Python uses Popen to communicate with a compiled C executable (./shell), which executes commands at the system level.
-
-
-Data Layer: Activity is logged via log_to_excel() and uploaded via upload_to_s3() to a designated AWS bucket (dheeraj-cli-storage-2025).
-
-
-_____________________________________
-
-
-🔧 Installation & Setup
-Clone the repository:
-
-Bash
-git clone https://github.com/VdheerajK/MiniThreadShell.git
-cd MiniThreadShell
-Compile the C Backend:
-
-Bash
-make
-Configure Environment Variables: Set your AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY to enable S3 uploads.
-
-Run the Application:
-
-Bash
-python3 gui.py
+## 📚 References
+* [Python Documentation](https://docs.python.org/3/)
+* [Tkinter Documentation](https://tkdocs.com)
+* [OpenPyXL (Excel) Docs](https://openpyxl.readthedocs.io/)
+* [Boto3 (AWS) Docs](https://boto3.amazonaws.com/)
+* [Matplotlib Documentation](https://matplotlib.org/)
